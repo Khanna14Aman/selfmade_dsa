@@ -1,0 +1,40 @@
+question==>https://leetcode.com/contest/weekly-contest-262/problems/stock-price-fluctuation/
+
+
+class StockPrice {
+public:
+    map<int,int>record;
+    multiset<int>count;
+    StockPrice() {
+        
+    }
+    
+    void update(int timestamp, int price) {
+        if(record.find(timestamp)!=record.end()){
+            count.erase(count.find(record[timestamp]));
+        }
+        record[timestamp]=price;
+        count.insert(price);
+    }
+    
+    int current() {
+        return record.rbegin()->second;
+    }
+    
+    int maximum() {
+        return *count.rbegin();
+    }
+    
+    int minimum() {
+        return *count.begin();
+    }
+};
+
+/**
+ * Your StockPrice object will be instantiated and called as such:
+ * StockPrice* obj = new StockPrice();
+ * obj->update(timestamp,price);
+ * int param_2 = obj->current();
+ * int param_3 = obj->maximum();
+ * int param_4 = obj->minimum();
+ */
