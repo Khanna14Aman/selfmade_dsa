@@ -1,0 +1,33 @@
+question==>https://www.codechef.com/problems/FINDMOD
+
+
+
+
+#include<bits/stdc++.h>
+#define int long long 
+using namespace std;
+
+int query(){
+    int y;
+    cin>>y;
+    return y;
+}
+
+void solve(){
+    int x = 1e18;
+    cout<<"? "<<x<<"\n";
+    int y1 = query();
+    int m = x-y1-1;
+    cout<<"? "<<m<<"\n";
+    int y2=query();
+    cout<<"! "<<y2+1<<"\n";
+}
+
+signed main(){
+    int t;
+    cin>>t;
+    while(t--){
+        solve();
+    }
+    return 0;
+}
